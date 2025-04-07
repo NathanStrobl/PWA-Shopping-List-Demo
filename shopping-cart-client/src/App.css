@@ -5,34 +5,6 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 @font-face {
   font-family: 'SourceSans';
   src: url('assets/fonts/SourceSans3-Regular.ttf');
@@ -45,11 +17,6 @@
 }
 
 html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
   font-family: 'SourceSans';
 }
 
@@ -57,21 +24,12 @@ a {
   text-decoration: none;
 }
 
-.main {
-  min-height: 95vh;
-  background-color: aqua;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .menubar {
   top: 0;
   left: 0;
-  position: absolute;
-  width: 100vw;
+  position: fixed;
+  width: 100%;
   height: 64px;
-  padding: 0;
   background-color: #0e47e4;
   color: #ffffff;
   display: flex;
@@ -90,4 +48,35 @@ a {
 .menubar p {
   font-size: 16px;
   margin: 0;
+}
+
+.welcome-message-container {
+  padding-top: 32px;
+}
+
+.categories-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1024px;
+  gap: 32px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.category-button {
+  background-color: #dddddd;
+  border-radius: 8px;
+  color: #000000;
+  max-width: 256px;
+  max-height: 256px;
+  width: 100%;
+  height: 100%;
+}
+
+.category-button img {
+  max-width: 160px;
+  max-height: 160px;
+  width: 100%;
+  height: 100%;
 }
