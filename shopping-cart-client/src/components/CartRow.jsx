@@ -1,6 +1,19 @@
-export default function CartRow({ cartObj }) {
+import Cookies from 'js-cookie';
+import { updateMenuBarCartStats } from './MenuBar';
+
+export default function CartRow({ cartObj, updateCallback }) {
     function removeItemFromCart() {
-        
+        try {
+            const cartContentsRaw = Cookies.get('walmarks-cart');
+            let cartContents = JSON.parse(cartContentsRaw);
+            cartContents = cartContents.filter(item => item.id !== cartObj.id);
+            Cookies.set('walmarks-cart', JSON.stringify(cartContents));
+        } catch(err) {
+            console.log(err);
+        }
+
+        updateMenuBarCartStats();
+        updateCallback();
     }
 
     return (
@@ -14,7 +27,7 @@ export default function CartRow({ cartObj }) {
                     <p>This item is in aisle {cartObj.aisleNo}</p>
                     <p>UPC: {cartObj.upc}</p>
                 </div>
-                <button className="cart-manipulation" style={{backgroundColor: '#ff0000'}}>
+                <button className="cart-manipulation" style={{backgroundColor: '#ff0000'}} onClick={removeItemFromCart}>
                 <svg fill="#ffffff" height="32px" width="32px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                     viewBox="0 0 460.775 460.775" xml:space="preserve">
                     <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55

@@ -3,9 +3,13 @@ import { updateMenuBarCartStats } from './MenuBar';
 
 export default function ItemRow({ itemObj }) {
     function addItemToCart() {
+        const cartObj = itemObj;
+
         try {
             const cartContentsRaw = Cookies.get('walmarks-cart');
             const cartContents = JSON.parse(cartContentsRaw);
+            delete cartObj.quantity;
+            cartObj.id = crypto.randomUUID();
             cartContents.push(itemObj);
             Cookies.set('walmarks-cart', JSON.stringify(cartContents), { expires: 30 });
         } catch(err) {
@@ -13,7 +17,6 @@ export default function ItemRow({ itemObj }) {
         }
 
         updateMenuBarCartStats();
-        console.log(Cookies.get('walmarks-cart'));
     }
 
     return (

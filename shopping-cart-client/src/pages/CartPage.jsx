@@ -1,11 +1,19 @@
+import { useEffect, useState } from "react";
 import CartRow from "../components/CartRow";
 import Cookies from 'js-cookie';
 
 export default function CartPage() {
-    let cartContents = [];
-    const cartContentsRaw = Cookies.get('walmarks-cart');
-    if(cartContentsRaw) {
-        cartContents = JSON.parse(cartContentsRaw);
+    const [cartContents, setCartContents] = useState([]);
+
+    useEffect(() => {
+        updateList();
+    }, [])
+
+    function updateList() {
+        const cartContentsRaw = Cookies.get('walmarks-cart');
+        if(cartContentsRaw) {
+            setCartContents(JSON.parse(cartContentsRaw));
+        }
     }
 
     return (
@@ -16,7 +24,7 @@ export default function CartPage() {
             </div>
             <div className="items-container" style={{display: cartContents.length > 0 ? 'block' : 'none'}}>
                 {cartContents.map(item => (
-                    <CartRow cartObj={item} />
+                    <CartRow cartObj={item} updateCallback={updateList} />
                 ))}
             </div>
         </>
