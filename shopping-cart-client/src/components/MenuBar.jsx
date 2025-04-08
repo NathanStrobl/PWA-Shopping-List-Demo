@@ -8,10 +8,10 @@ export default function MenuBar() {
 
     return (
         <div className="menubar">
-            <a className="left" href="/" style={{marginLeft: '16px'}}>
+            <a href="/" style={{marginLeft: '16px'}}>
                 <h1 style={{fontWeight: 'bold'}}>Walmark's</h1>
             </a>
-            <a className="right" href="/cart">
+            <a href="/cart">
                 <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                     width="40" height="40px" viewBox="0 0 902.86 902.86"
                     xml:space="preserve">
