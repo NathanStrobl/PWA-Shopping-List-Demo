@@ -11,7 +11,7 @@ export default function ItemRow({ itemObj }) {
                     <p>This item is in aisle {itemObj.aisleNo}</p>
                     <p>UPC: {itemObj.upc}</p>
                 </div>
-                <button className="add-to-cart">
+                <button className="cart-manipulation" style={{backgroundColor: '#0f47e4'}}>
                 <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                     width="32px" height="32px" viewBox="0 0 979.248 979.248"
                     xml:space="preserve">

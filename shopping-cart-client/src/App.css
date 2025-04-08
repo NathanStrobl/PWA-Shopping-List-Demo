@@ -107,8 +107,7 @@ a {
   width: 100%;
 }
 
-button.add-to-cart {
-  background-color: #0f47e4;
+button.cart-manipulation {
   color: #ffffff;
   margin-left: auto;
   min-width: 128px;
