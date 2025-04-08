@@ -9,7 +9,7 @@ export default function Homepage() {
                 <h3>Select one of the categories below to begin browsing our selection.</h3>
             </div>
             <div className="categories-container">
-                <CategoryButton title="Clothing" image={WalmarksLogo} path='/browse' />
+                <CategoryButton title="Clothing" image={WalmarksLogo} path='/browse?category=Test' />
                 <CategoryButton title="Home Goods" image={WalmarksLogo} />
                 <CategoryButton title="Electronics" image={WalmarksLogo} />
                 <CategoryButton title="Office Supplies" image={WalmarksLogo} />
