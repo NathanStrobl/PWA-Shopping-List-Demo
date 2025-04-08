@@ -7,21 +7,49 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+type ProductCategory struct {
+	Title    string    `json:"title"`
+	Products []Product `json:"products"`
+}
+
 type Product struct {
 	Title    string  `json:"title"`
 	Price    float32 `json:"price"`
 	Quantity int     `json:"quantity"`
 	AisleNo  string  `json:"aisleNo"`
 	Upc      string  `json:"upc"`
-	Category string  `json:"category"`
 }
 
-func getItems(c *gin.Context) {
-	items := []Product{
-		{Title: "Test", Price: 1.99, Quantity: 50, AisleNo: "A23", Upc: "1234567890", Category: "Clothing"},
+func getAllProductCategories() []ProductCategory {
+	return []ProductCategory{
+		{Title: "Test", Products: []Product{
+			{Title: "Test", Price: 1.99, Quantity: 50, AisleNo: "A23", Upc: "1234567890"},
+		}},
+		{Title: "Test2", Products: []Product{
+			{Title: "iPhone 14 Pro Max (128GB)", Price: 1199.99, Quantity: 10, AisleNo: "A23", Upc: "000000000000"},
+		}},
+	}
+}
+
+func getProductCategory(c *gin.Context) {
+	productCategories := getAllProductCategories()
+	var selectedCategory ProductCategory
+	categoryFound := false
+
+	categoryUrlParam := c.Query("category")
+
+	for _, element := range productCategories {
+		if element.Title == categoryUrlParam {
+			selectedCategory = element
+			categoryFound = true
+		}
 	}
 
-	c.JSON(http.StatusOK, items)
+	if categoryFound {
+		c.JSON(http.StatusOK, selectedCategory)
+	} else {
+		c.JSON(http.StatusNotFound, "Category was not specified or the requested product category does not exist.")
+	}
 }
 
 func main() {
@@ -35,7 +63,7 @@ func main() {
 
 	routerGroup := router.Group("/")
 	{
-		routerGroup.GET("", getItems)
+		routerGroup.GET("", getProductCategory)
 	}
 
 	router.Run()
