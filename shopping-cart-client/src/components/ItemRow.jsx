@@ -1,4 +1,21 @@
+import Cookies from 'js-cookie';
+import { updateMenuBarCartStats } from './MenuBar';
+
 export default function ItemRow({ itemObj }) {
+    function addItemToCart() {
+        try {
+            const cartContentsRaw = Cookies.get('walmarks-cart');
+            const cartContents = JSON.parse(cartContentsRaw);
+            cartContents.push(itemObj);
+            Cookies.set('walmarks-cart', JSON.stringify(cartContents), { expires: 30 });
+        } catch(err) {
+            Cookies.set('walmarks-cart', JSON.stringify([itemObj]), { expires: 30 });
+        }
+
+        updateMenuBarCartStats();
+        console.log(Cookies.get('walmarks-cart'));
+    }
+
     return (
         <div className="item-row">
             <div style={{display: 'flex'}}>
@@ -11,7 +28,7 @@ export default function ItemRow({ itemObj }) {
                     <p>This item is in aisle {itemObj.aisleNo}</p>
                     <p>UPC: {itemObj.upc}</p>
                 </div>
-                <button className="cart-manipulation" style={{backgroundColor: '#0f47e4'}}>
+                <button className="cart-manipulation" style={{backgroundColor: '#0f47e4'}} onClick={addItemToCart}>
                 <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                     width="32px" height="32px" viewBox="0 0 979.248 979.248"
                     xml:space="preserve">

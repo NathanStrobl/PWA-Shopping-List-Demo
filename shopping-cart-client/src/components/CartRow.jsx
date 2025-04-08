@@ -1,4 +1,8 @@
 export default function CartRow({ cartObj }) {
+    function removeItemFromCart() {
+        
+    }
+
     return (
         <div className="item-row">
             <div style={{display: 'flex'}}>

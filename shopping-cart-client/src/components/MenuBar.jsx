@@ -1,10 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Cookies from 'js-cookie';
+
+let quantityInCart = 0;
+let total = 0;
+let listeners = [];
+
+function triggerUiUpdate() {
+    listeners.forEach(listener => listener({ quantityInCart, total }))
+}
+
+export function updateMenuBarCartStats() {
+    try {
+        const cartContents = JSON.parse(Cookies.get('walmarks-cart'));
+        quantityInCart = cartContents.length;
+        total = cartContents.reduce((sum, item) => sum + item.price, 0);
+    } catch(err) {
+        quantityInCart = 0;
+        total = 0;
+        console.log(err);
+    }
+
+    triggerUiUpdate();
+}
 
 export default function MenuBar() {
-    const [quantityInCart, setQuantityInCart] = useState(0);
-    const [totalCartCost, setTotalCartCost] = useState(0);
+    const [cartStats, setCartStats] = useState({ quantityInCart, total });
 
-
+    useEffect(() => {
+        listeners.push(setCartStats);
+        updateMenuBarCartStats();
+        return () => {
+            listeners = listeners.filter(listener => listener !== setCartStats)
+        }
+    }, [])
 
     return (
         <div className="menubar">
@@ -29,7 +57,7 @@ export default function MenuBar() {
                         </g>
                     </g>
                 </svg>
-                <p>{totalCartCost} item(s), ${quantityInCart.toFixed(2)}</p>
+                <p>{cartStats.quantityInCart} item(s), ${cartStats.total.toFixed(2)}</p>
             </a>
         </div>
     );

@@ -1,24 +1,24 @@
 import CartRow from "../components/CartRow";
+import Cookies from 'js-cookie';
 
 export default function CartPage() {
-    const sampleCartObj = {
-        title: "Test",
-        price: 1.99,
-        aisleNo: "A23",
-        upc: "1234567890"
-    };
-
-    const sampleCartObj2 = {
-        title: "iPhone 14 Pro Max (128GB)",
-        price: 1199.99,
-        aisleNo: 'A23',
-        upc: '1234567890'
+    let cartContents = [];
+    const cartContentsRaw = Cookies.get('walmarks-cart');
+    if(cartContentsRaw) {
+        cartContents = JSON.parse(cartContentsRaw);
     }
 
     return (
-        <div className="items-container">
-            <CartRow cartObj={sampleCartObj} />
-            <CartRow cartObj={sampleCartObj2} />
-        </div>
+        <>
+            <div style={{display: cartContents.length == 0 ? 'block' : 'none'}}>
+                <h2>No items in cart.</h2>
+                <h3>Go back to the homepage to start adding products to your cart.</h3>
+            </div>
+            <div className="items-container" style={{display: cartContents.length > 0 ? 'block' : 'none'}}>
+                {cartContents.map(item => (
+                    <CartRow cartObj={item} />
+                ))}
+            </div>
+        </>
     );
 }
