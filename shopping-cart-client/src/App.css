@@ -6,19 +6,8 @@
   text-align: center;
 }
 
-@font-face {
-  font-family: 'SourceSans';
-  src: url('/fonts/SourceSans3-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'SourceSans';
-  src: url('/fonts/SourceSans3-Bold.ttf') format('truetype');
-  font-weight: bold;
-}
-
 html, body {
-  font-family: 'SourceSans';
+  font-family: sans-serif;
 }
 
 a {
@@ -99,6 +88,7 @@ a {
   border: 1px solid #dddddd;
   padding: 8px 16px;
   border-radius: 8px;
+  margin-bottom: 32px;
 }
 
 .data-container {
