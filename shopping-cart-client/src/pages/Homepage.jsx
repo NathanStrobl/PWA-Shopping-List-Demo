@@ -10,7 +10,7 @@ export default function Homepage() {
     return (
         <>
             <div className="welcome-message-container">
-                <h1 class="shrink" style={{lineHeight: '20px'}}>Welcome to Walmark's!</h1>
+                <h1 className="shrink" style={{lineHeight: '20px'}}>Welcome to Walmark's!</h1>
                 <h3>Select one of the categories below to begin browsing our selection.</h3>
             </div>
             <div className="categories-container">

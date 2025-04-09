@@ -1,10 +1,8 @@
 const CACHE_NAME = 'walmarks-cache';
 const cacheUrls = [
     '/',
-    '/index.html',
-    '/manifest.json',
-    '/fonts/SourceSans3-Regular.ttf',
-    '/fonts/SourceSans3-Bold.ttf'
+    '/cart',
+    '/browse',
     // as many files as you need to cache can go here
 ];
 
