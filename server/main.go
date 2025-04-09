@@ -61,7 +61,7 @@ func main() {
 		ExposeHeaders: []string{"Content-Length"},
 	}))
 
-	routerGroup := router.Group("/")
+	routerGroup := router.Group("/api/browse")
 	{
 		routerGroup.GET("", getProductCategory)
 	}
