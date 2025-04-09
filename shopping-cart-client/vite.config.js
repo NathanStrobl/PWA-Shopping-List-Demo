@@ -42,9 +42,8 @@ export default defineConfig({
           },
           // Font caching rule
           {
-            urlPattern: ({ request }) =>
-              request.url.match(/\.(woff2?|woff|ttf|otf|eot)$/), // Match font file extensions
-            handler: 'StaleWhileRevalidate',
+            urlPattern: /^https:\/\/pwa\.nathan-strobl\.org\/fonts\/.*\.(woff2?|ttf|otf|eot)$/,
+            handler: 'CacheFirst',
             options: {
               cacheName: 'font-cache',
               expiration: {
