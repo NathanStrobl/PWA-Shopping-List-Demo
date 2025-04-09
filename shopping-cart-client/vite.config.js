@@ -42,7 +42,7 @@ export default defineConfig({
           },
           // Font caching rule
           {
-            urlPattern: /\.(woff2?|woff|ttf|otf|eot)$/, // Match font file extensions
+            urlPattern: ({ request }) => request.pathname.startsWith('/fonts/'),
             handler: 'CacheFirst',
             options: {
               cacheName: 'font-cache',
