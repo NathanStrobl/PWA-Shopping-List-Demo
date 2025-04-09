@@ -27,7 +27,7 @@ func getAllProductCategories() []ProductCategory {
 			{Title: "Pants", Price: 12.99, Quantity: 50, AisleNo: "A23", Upc: "3214567890"},
 			{Title: "Sweater", Price: 15.99, Quantity: 50, AisleNo: "A23", Upc: "1234567897"},
 			{Title: "Graphic Tee", Price: 11.99, Quantity: 50, AisleNo: "A23", Upc: "1234567899"},
-			{Title: "Black Turtleneck Sweater", Price: 13.99, Quantity: 50, AisleNo: "A23", Upc: "1234567895"},
+			{Title: "Turtleneck Sweater", Price: 13.99, Quantity: 50, AisleNo: "A23", Upc: "1234567895"},
 			{Title: "Skirt", Price: 10.99, Quantity: 50, AisleNo: "A23", Upc: "1234567891"},
 			{Title: "Socks", Price: 5.99, Quantity: 50, AisleNo: "A23", Upc: "1234567892"},
 			{Title: "Beanie", Price: 9.99, Quantity: 50, AisleNo: "A23", Upc: "1234567893"},
@@ -50,7 +50,7 @@ func getAllProductCategories() []ProductCategory {
 			{Title: "Amazon Alexa", Price: 169.99, Quantity: 10, AisleNo: "C23", Upc: "500000000000"},
 			{Title: "Raspberry Pi 5", Price: 119.99, Quantity: 9, AisleNo: "C23", Upc: "600000000000"},
 			{Title: "Arduino Uno", Price: 39.99, Quantity: 8, AisleNo: "C23", Upc: "700000000000"},
-			{Title: "Slot Machine Simulator", Price: 999.99, Quantity: 7, AisleNo: "C23", Upc: "800000000000"},
+			{Title: "Slot Machine", Price: 999.99, Quantity: 7, AisleNo: "C23", Upc: "800000000000"},
 		}},
 		{Title: "Groceries", Products: []Product{
 			{Title: "Organic Apples (0.5 lb)", Price: 0.99, Quantity: 100, AisleNo: "A01", Upc: "900000000001"},
