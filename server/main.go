@@ -65,7 +65,7 @@ func getAllProductCategories() []ProductCategory {
 		{Title: "Toys", Products: []Product{
 			{Title: "Lego Classic Bricks", Price: 29.99, Quantity: 25, AisleNo: "D12", Upc: "910000000001"},
 			{Title: "Remote Control Car", Price: 49.99, Quantity: 20, AisleNo: "D12", Upc: "910000000002"},
-			{Title: "Plush Teddy Bear", Price: 19.99, Quantity: 30, AisleNo: "D12", Upc: "910000000003"},
+			{Title: "Slinky", Price: 19.99, Quantity: 30, AisleNo: "D12", Upc: "910000000003"},
 			{Title: "Board Game - Catan", Price: 44.99, Quantity: 15, AisleNo: "D12", Upc: "910000000004"},
 			{Title: "Puzzle (1000 pieces)", Price: 14.99, Quantity: 25, AisleNo: "D12", Upc: "910000000005"},
 			{Title: "Nerf Blaster", Price: 24.99, Quantity: 20, AisleNo: "D12", Upc: "910000000006"},
