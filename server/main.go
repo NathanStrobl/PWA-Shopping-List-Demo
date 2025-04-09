@@ -27,7 +27,7 @@ func getAllProductCategories() []ProductCategory {
 			{Title: "Pants", Price: 12.99, Quantity: 50, AisleNo: "A23", Upc: "3214567890"},
 			{Title: "Sweater", Price: 15.99, Quantity: 50, AisleNo: "A23", Upc: "1234567897"},
 			{Title: "Graphic Tee", Price: 11.99, Quantity: 50, AisleNo: "A23", Upc: "1234567899"},
-			{Title: "Turtleneck Sweater", Price: 13.99, Quantity: 50, AisleNo: "A23", Upc: "1234567895"},
+			{Title: "Black Turtleneck Sweater", Price: 13.99, Quantity: 50, AisleNo: "A23", Upc: "1234567895"},
 			{Title: "Skirt", Price: 10.99, Quantity: 50, AisleNo: "A23", Upc: "1234567891"},
 			{Title: "Socks", Price: 5.99, Quantity: 50, AisleNo: "A23", Upc: "1234567892"},
 			{Title: "Beanie", Price: 9.99, Quantity: 50, AisleNo: "A23", Upc: "1234567893"},
