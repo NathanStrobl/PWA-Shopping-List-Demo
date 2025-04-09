@@ -42,7 +42,7 @@ export default defineConfig({
           },
           // Font caching rule
           {
-            urlPattern: ({ request }) => request.pathname.startsWith('/fonts/'),
+            urlPattern: /^https:\/\/pwa\.nathan-strobl\.org\/fonts\/.*\.(woff2?|ttf|otf|eot)$/,
             handler: 'CacheFirst',
             options: {
               cacheName: 'font-cache',
